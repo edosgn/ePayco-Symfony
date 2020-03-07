@@ -2,7 +2,7 @@
 Componente para utilización de pasarela de pago integrada a ePayco
 
 
-## Prerequisites
+## Prerequisitos
 
 1. Debe tener el siguiente software instalado en su estación de trabajo local:
    -  [PHP version >=5.5.9]
