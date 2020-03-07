@@ -100,4 +100,4 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
     }
    ```
 
-1. Ahora, debes copiar los archivos en la carpeta views de tu proyecto `/src/YourBundle/Resources/views`, payment.new.html.twig y payment.response.html.twig
+1. Ahora, debes copiar los archivos en la carpeta views de tu proyecto `/src/YourBundle/Resources/views`: payment.new.html.twig y payment.response.html.twig
