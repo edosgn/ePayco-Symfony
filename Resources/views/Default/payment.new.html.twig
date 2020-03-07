@@ -1,0 +1,100 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <form method="POST">
+        <div class="row"><!-- .row -->
+            <div class="col-lg-4"><!-- .col -->
+                <div class="panel panel-default">
+                    <div class="panel-heading bg-white"><!-- .panel-heading -->
+                        REALIZAR PAGO ELECTRONICO
+                        <br>
+                        <small class="text-muted">Los campos con * son obligatorios.</small>
+                    </div><!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="form-group form-group-sm">
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="control-label">Fecha registro <span class="text-danger">(*)</span></label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control datepicker" id="input-date" name="fecha" value="{{ 'now'|date('d/m/Y') }}" required>
+                                    <span class="input-group-addon primary">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="control-label">Descripción <span class="text-danger">(*)</span></label>
+                                <textarea class="form-control" rows="4" id="input-description" required></textarea>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="control-label">Valor <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="input-amount" required>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-12">
+                                <label class="control-label">No. factura <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="input-invoice" required>
+                            </div>
+
+                            <div class="col-xs-12 col-lg-12 m-t-sm text-right">
+                                <button type="button" class="btn btn-primary m-b waves-effect" id="btn-payment" data-url="{{ path('cadrecaudo_calculate') }}">
+                                    <i class="fa fa-money"></i>
+                                    Realizar pago
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript"src="https://checkout.epayco.co/checkout.js"></script>
+
+    <script type="text/javascript">
+        var handler = ePayco.checkout.configure({
+            key: '45b960805ced5c27ce34b1600b4b9f54',
+            test: true
+        });
+
+        $('#btn-payment').click(function (e){
+            var data = {
+                //Parametros compra (obligatorio)
+                name: "Recaudo",
+                description: $('#input-description').val(),
+                invoice: $('#input-invoice').val(),
+                currency: "cop",
+                amount: $('#input-amount').val(),
+                tax_base: "0",
+                tax: "0",
+                country: "co",
+                lang: "en",
+
+                //Onpage="false" - Standard="true"
+                external: "false",
+
+                //Atributos opcionales
+                extra1: $('#input-date').val(),
+                //extra2: "extra2",
+                //extra3: "extra3",
+                confirmation: "http://192.169.218.194/~sednarino/coopmanager/web/contabilidad/payment/confirmation",
+                response: "http://192.169.218.194/~sednarino/coopmanager/web/contabilidad/payment/response",
+
+                //Atributos cliente
+                name_billing: "Andres Perez",
+                address_billing: "Carrera 19 numero 14 91",
+                type_doc_billing: "cc",
+                mobilephone_billing: "3050000000",
+                number_doc_billing: "100000000"
+
+                //atributo deshabilitación metodo de pago
+                //methodsDisable: ["TDC", "PSE","SP","CASH","DP"]
+            }
+
+            handler.open(data)
+        });
+    </script>
+{% endblock %}
