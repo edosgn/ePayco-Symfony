@@ -14,13 +14,12 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
    Antes de comenzar, debes actualizar el archivo DefaultController.php de tu proyecto `/src/YourBundle/Controller` con las acciones de confirmación, respuesta y nuevo pago online:
 
    ```conf
-  /**
+    /**
      * @Route("/payment/confirm", name="contabilidad_payment_confirm")
      * @Method({"POST"})
      */
     public function paymentConfirmAction()
     {
-
         /*En esta página se reciben las variables enviadas desde ePayco hacia el servidor.
         Antes de realizar cualquier movimiento en base de datos se deben comprobar algunos valores
         Es muy importante comprobar la firma enviada desde ePayco
