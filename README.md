@@ -105,34 +105,42 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
 ## Tarjetas de Crédito de Pruebas
 
 1.	Aceptada
+```conf
 Franquicia: Visa
 Numero: 4575623182290326
 Fecha Expiración: 12/25
 Cvv: 123
 Estado: Aceptada
 Respuesta: Aceptada
+```
 
 1.	Fondos insuficientes
+```conf
 Franquicia: Visa
 Numero: 4151611527583283
 Fecha Expiración: 12/25
 Cvv: 123
 Estado: Rechazada
 Respuesta: Fondos Insuficientes
+```
 
 1.	Fallida
+```conf
 Franquicia: Mastercard
 Numero: 5170394490379427
 Fecha Expiración: 12/25
 Cvv: 123
 Estado: Fallida
 Respuesta: Error de comunicación con el centro de autorizaciones
+```
 
 1.	Pendiente
+```conf
 Franquicia: American Express
 Numero: 373118856457642
 Fecha Expiración: 12/25
 Cvv: 123
 Estado: Pendiente
 Respuesta: Transacción pendiente por validación
+```
 
