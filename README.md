@@ -1,5 +1,5 @@
 # ePayco-Symfony
-Componente para utilización de pasarela de pago integrada a ePayco
+Componente para utilización de pasarela de pago integrada a ePayco desde Symfony
 
 
 ## Prerequisitos
