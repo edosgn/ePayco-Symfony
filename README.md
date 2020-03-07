@@ -8,7 +8,7 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
    -  [PHP version >=5.5.9]
    -  [MySQL version 15.1, Distrib 10.1.38-MariaDB]
    -  [Symfony version >=3.4.0 hasta <= 3.4.17]
-   -  [https://epayco.co/]
+   -  [Cuenta en ePayco https://epayco.co/]
    
 1. Actualizar tu controlador
    Antes de comenzar, debes actualizar el archivo DefaultController.php de tu proyecto `/src/YourBundle/Controller` con las acciones de confirmación, respuesta y nuevo pago online:
@@ -101,3 +101,38 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
    ```
 
 1. Ahora, debes copiar los archivos en la carpeta views de tu proyecto `/src/YourBundle/Resources/views`: payment.new.html.twig y payment.response.html.twig
+
+## Tarjetas de Crédito de Pruebas
+
+1.	Aceptada
+Franquicia: Visa
+Numero: 4575623182290326
+Fecha Expiración: 12/25
+Cvv: 123
+Estado: Aceptada
+Respuesta: Aceptada
+
+1.	Fondos insuficientes
+Franquicia: Visa
+Numero: 4151611527583283
+Fecha Expiración: 12/25
+Cvv: 123
+Estado: Rechazada
+Respuesta: Fondos Insuficientes
+
+1.	Fallida
+Franquicia: Mastercard
+Numero: 5170394490379427
+Fecha Expiración: 12/25
+Cvv: 123
+Estado: Fallida
+Respuesta: Error de comunicación con el centro de autorizaciones
+
+1.	Pendiente
+Franquicia: American Express
+Numero: 373118856457642
+Fecha Expiración: 12/25
+Cvv: 123
+Estado: Pendiente
+Respuesta: Transacción pendiente por validación
+
