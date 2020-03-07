@@ -148,12 +148,12 @@ Respuesta: Transacción pendiente por validación
 ## Establecer el modo de inicio
 
 Recuerda cambiar en el archivo /payment.new.html.twig la linea 60:
-`
+```conf
 var handler = ePayco.checkout.configure({
-   key: '45b960805ced5c27ce34b1600b4b9f54',
+   key: 'public_key',
    test: true
 });
-`
+```
 
 -  **Developer mode `test: true`
 -  **Production mode `test: false`
