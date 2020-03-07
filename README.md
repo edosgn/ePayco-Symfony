@@ -15,7 +15,7 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
 
    ```conf
     /**
-     * @Route("/payment/confirm", name="contabilidad_payment_confirm")
+     * @Route("/payment/confirm", name="yourbundle_payment_confirm")
      * @Method({"POST"})
      */
     public function paymentConfirmAction()
@@ -78,11 +78,11 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
             die('Firma no valida');
         }
 
-        //return $this->render('@EGContabilidad/Default/payment.confirm.html.twig');
+        //return $this->render('@yourbundle/Default/payment.confirm.html.twig');
     }
 
     /**
-     * @Route("/payment/response", name="contabilidad_payment_response")
+     * @Route("/payment/response", name="yourbundle_payment_response")
      * @Method({"POST"})
      */
     public function paymentResponseAction()
@@ -91,11 +91,13 @@ Componente para utilización de pasarela de pago integrada a ePayco desde Symfon
     }
 
     /**
-     * @Route("/payment/new", name="contabilidad_payment_new")
+     * @Route("/payment/new", name="yourbundle_payment_new")
      * @Method({"GET", "POST"})
      */
     public function paymentNewAction(Request $request)
     {
-        return $this->render('@EGContabilidad/Default/payment.new.html.twig');
+        return $this->render('@yourbundle/Default/payment.new.html.twig');
     }
    ```
+
+1. Ahora, debes copiar los archivos en la carpeta views de tu proyecto `/src/YourBundle/Resources/views`, payment.new.html.twig y payment.response.html.twig
